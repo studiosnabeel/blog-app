@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  subject { Comment.new(text: 'Ruby on Rails')}
+  subject { Comment.new(text: 'Ruby on Rails') }
 
   before { subject.save }
 
