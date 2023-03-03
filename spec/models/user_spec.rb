@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   subject { User.new(name: 'Nabeel', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'student', posts_counter: 0) }
   before { subject.save }
+  let(:user) { subject }
 
   context 'Test Validations' do
     it 'User is not valid without a name' do
@@ -14,9 +15,10 @@ RSpec.describe User, type: :model do
       expect(subject).to be_valid
     end
 
-    it 'User is not valid with negative posts_counter' do
-      Subject.posts_counter = -10
-      expect(subject).to_not be_valid
+    it 'is invalid with a negative posts counter' do
+      user = User.new(name: 'Tom', posts_counter: -1)
+      expect(user).to_not be_valid
+      expect(user.errors[:posts_counter]).to include('must be greater than or equal to 0')
     end
 
     it 'User is valid if positive post_counter' do
