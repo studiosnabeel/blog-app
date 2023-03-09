@@ -1,3 +1,29 @@
+<section>
+
 <h1>Posts Details </h1>
 
-<!-- add placeholders for displaying details of a single post -->
+<%post = @post %>
+<%user = @user %>
+
+<div class="post__container1">
+  <div class="magic">
+    <h2>Post #<%=post.id%> by <%=user.name%>: <%=post.title%></h2>
+    <div class="likes-comments">
+        <p>Comments: <%= post.comments_counter || 0%>, Likes: <%= post.likes_counter ||0%></p>
+    </div>
+  </div>
+    <p class='post-para'><%=post.text%></p>
+</div>
+
+<div class="comments-container">
+  <% Comment.where(post_id:post.id).each do |comment| %>
+    <div class="comment-container">
+      <%author = User.find_by(id: comment.author_id)%>
+      <p><%=author.name%>: <%=comment.text[0..100]%>...</p>
+    </div>
+  <% end %>
+</div>
+
+<a class='home-anchor' href="../../">home </a>
+
+</section>

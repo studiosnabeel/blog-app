@@ -1,3 +1,15 @@
-<h1> List of All Users. </h1>
+<section>
+  <h1> List of All Users. </h1>
 
-<!-- add placeholders for displaying list of posts -->
+  <% @users.each do |user| %>
+  <div class="user__box">
+    <img src="<%= user.photo %>" alt="image">
+    <div class="name__box">
+      <p class="user__name"><%= link_to "#{user.name}", "#{users_path}/#{user.id}" %></p>
+      <p class="user_number_of_post">Number of posts : <%= user.posts_counter || 0%></p>
+    </div>
+  </div>
+  <% end %>
+
+</section>
+
