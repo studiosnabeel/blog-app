@@ -173,3 +173,19 @@ section {
   border-radius: 5px;
   text-decoration: none;
 }
+
+.logo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Footer {
+  font-size: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
