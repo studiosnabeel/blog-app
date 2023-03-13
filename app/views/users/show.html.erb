@@ -23,7 +23,7 @@
   <div class="post__container">
     <% user.recent_posts.each do |post |%>
     <div class="post-container">
-        <h2>Post #<%=post.id%>: <%= link_to "#{post.title}", "#{user.id}/posts#{post.id}"%></h2>
+        <h2>Post #<%=post.id%>: <%= link_to "#{post.title}", "#{user.id}/posts/#{post.id}"%></h2>
         <p><%=post.text[0..100]%>...</p>
         <div class="post-comments-likes">
         <p class= 'comment_likes'>Commernts: <%= post.comments_counter || 0%>, Likes: <%= post.likes_counter || 0%>
