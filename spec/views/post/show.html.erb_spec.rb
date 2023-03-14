@@ -5,9 +5,12 @@ RSpec.describe 'Posts show view', type: :system do
     subject { User.create(name: 'Ashley', photo: 'https://www.anisearch.de/images/character/cover/full/0/820.webp', bio: 'Solider', posts_counter: 0) }
 
     it 'Display posts view content' do
-      post = Post.create(author_id: subject.id, title: 'Hello 1', text: 'This is my post', comments_counter: 0, likes_counter: 0)
-      Post.create(author_id: subject.id, title: 'Hello 2', text: 'This is my post 2', comments_counter: 0, likes_counter: 0)
-      Post.create(author_id: subject.id, title: 'Hello 3', text: 'This is my post 3', comments_counter: 0, likes_counter: 0)
+      post = Post.create(author_id: subject.id, title: 'Hello 1', text: 'This is my post', comments_counter: 0,
+                         likes_counter: 0)
+      Post.create(author_id: subject.id, title: 'Hello 2', text: 'This is my post 2', comments_counter: 0,
+                  likes_counter: 0)
+      Post.create(author_id: subject.id, title: 'Hello 3', text: 'This is my post 3', comments_counter: 0,
+                  likes_counter: 0)
       comment = Comment.create(author_id: subject.id, post_id: post.id, text: 'Test comment')
       visit user_posts_path(subject, post)
 
