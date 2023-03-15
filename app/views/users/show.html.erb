@@ -1,38 +1,37 @@
 <section>
 
-  <h1>User Details </h1>
+<h1>Details of a user</h1>
 
-  <%user = @user%>
+<%user = @user%>
 
-  <div class="user__box">
-    <img src="<%= user.photo %>" alt="user-photo">
-    <div class="name__box">
-      <p class="user__name"><%= link_to "#{user.name}", "#{users_path}/#{user.id}"%></p>
-      <p class="user_number_of_post">Number of posts <%= user.posts_counter || 0 %></p>
-    </div>
+<div class="user-container">
+  <img src="<%= user.photo%>" alt="user-photo">
+  <div class="name-box">
+  <p class= "user-name"><%= link_to "#{user.name}", "#{users_path}/#{user.id}" %></p>
+  <p class= "user-number-of-post">Number of posts<%= user.posts_counter || 0%></p>
   </div>
-  <div class="bio-of-user">
+</div>
+<div class="bio-of-user">
     <p>Bio</p>
     <p><%=user.bio%></p>
-  </div>
+</div>
 
-  <div>
+<div>
   <p><%= link_to "Create new post", "./#{user.id}/posts/new" %></p>
 </div>
 
-  <div class="post__container">
+<div class="post-container">
     <% user.recent_posts.each do |post |%>
     <div class="post-container">
-        <h2>Post #<%=post.id%>: <%= link_to "#{post.title}", "#{user.id}/posts/#{post.id}"%></h2>
+        <p>Post #<%=post.id%>: <%= link_to "#{post.title}", "#{user.id}/posts/#{post.id}"%></p>
         <p><%=post.text[0..100]%>...</p>
         <div class="post-comments-likes">
-        <p class= 'comment_likes'>Commernts: <%= post.comments_counter || 0%>, Likes: <%= post.likes_counter || 0%>
+        <p>Commernts: <%= post.comments_counter || 0%>, Likes: <%= post.likes_counter || 0%>
         </div>
     </div>
     <% end %>
-  </div>
-  <form class="see-all-posts-btn" action="./<%=user.id%>/posts" method="get">
-    <button type="submit">See all posts</button>
-  </form>
+</div>
+
+  <%= button_to 'See all posts', user_posts_path(@user), method: :get %>
 
 </section>
