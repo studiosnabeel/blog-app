@@ -71,10 +71,10 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'devise'
 gem 'pry'
 gem 'pry-byebug'
 gem 'rails-controller-testing'
 gem 'rspec-mocks', '3.12.3'
 gem 'rspec-rails', '~> 4.0.0.beta2'
 gem 'rubocop', '>= 1.0', '< 2.0'
-gem 'devise'
