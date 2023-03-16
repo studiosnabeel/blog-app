@@ -25,9 +25,8 @@ section {
 }
 
 .user__box img {
-  border: 1px solid purple;
-  padding: 14px;
-  border-radius: 2px;
+  width: 100px;
+  height: 56px;
 }
 
 .name__box {
@@ -188,4 +187,11 @@ section {
   justify-content: center;
   align-items: center;
   margin: 10px 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
